@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Qi Branch Test Page</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Branch Demo Page">
+    <meta name="author" content="Mike Kwon">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <link rel="stylesheet" href="/style.css">    
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Branch metatags -->
+    <meta name="branch:deeplink:category" content="demo" />
+    <meta name="branch:deeplink:render_banner" content="true" />
+    <meta name="branch:deeplink:page_type" content="homepage" />
+    <meta name="branch:deeplink:page" content="homepage" />
+
+    <!-- Branch Web SDK -->
+    <script type="text/javascript">
+
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking getBrowserFingerprintId".split(" "), 0);
+
+    // .init call to launch banner
+    branch.init('key_test_hgITi8Ubm8IZ9ls3rV2rEienCtbrpek2',{}, function(err, data) {
+        console.log(data);
+        console.log(document.referrer);
+    });
+    </script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+        <h1>My First Heading</h1>
+        <p>My first paragraph.</p>
+    </body>
+</html>
