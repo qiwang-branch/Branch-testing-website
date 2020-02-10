@@ -31,6 +31,19 @@
       function(err) { console.log(err); }
       );
     };
+
+    function customEvent() {
+      var custom_data = {
+        "foo": "bar",
+        "$referrerID": "ced82cd8-3e3e-4ef4-b2d0-2ea661c0d82d"
+      };
+
+      branch.logEvent(
+      "APPLICATION_CREATED",
+      custom_data,
+      function(err) { console.log(err); }
+      );
+    };
   </script>
 </head>
 <body>
