@@ -10,6 +10,11 @@
     // init Branch
     branch.init('key_test_hgITi8Ubm8IZ9ls3rV2rEienCtbrpek2');
 
+        branch.setBranchViewData({
+        data: {
+          'brand_name': 'Woolies'
+        }
+      });
     function logIn() {
       branch.track('pageview', {
         'loggedIn': true
