@@ -10,11 +10,14 @@
     // init Branch
     branch.init('key_test_hgITi8Ubm8IZ9ls3rV2rEienCtbrpek2');
 
-        branch.setBranchViewData({
-        data: {
-          'brand_name': 'Woolies'
-        }
-      });
+    var listener = function(event, data) { console.log(event, data); }
+    // Specify an event to listen for
+    branch.addListener('willShowJourney', listener);
+      //   branch.setBranchViewData({
+      //   data: {
+      //     'brand_name': 'Woolies'
+      //   }
+      // });
     function logIn() {
       branch.track('pageview', {
         'loggedIn': true
@@ -58,11 +61,6 @@
       branch.track('pageview', {
         'brand_name': 'Woolies'
       });
-      // branch.setBranchViewData({
-      //   data: {
-      //     'brand_name': 'Woolies'
-      //   }
-      // });
       console.log('fired event');
     };
   </script>
