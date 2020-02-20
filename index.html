@@ -10,14 +10,18 @@
     // init Branch
     branch.init('key_test_hgITi8Ubm8IZ9ls3rV2rEienCtbrpek2');
 
-    var listener = function(event, data) { console.log(event, data); }
-    // Specify an event to listen for
-    branch.addListener('willShowJourney', listener);
-      //   branch.setBranchViewData({
-      //   data: {
-      //     'brand_name': 'Woolies'
-      //   }
-      // });
+    var num = Math.floor((Math.random() * 2) + 1);
+    if (num%2 == 0) {
+      branch.setBranchViewData({
+      data: {
+        'brand_name': 'Woolies'
+      }});
+    } else {
+      branch.setBranchViewData({
+      data: {
+        'brand_name': 'BWS'
+      }});
+    }
     function logIn() {
       branch.track('pageview', {
         'loggedIn': true
@@ -53,16 +57,6 @@
       function(err) { console.log(err); }
       );
     };
-
-    function switchBrandName() {
-      branch.closeJourney(function(err) {
-        console.log(err);
-      });
-      branch.track('pageview', {
-        'brand_name': 'Woolies'
-      });
-      console.log('fired event');
-    };
   </script>
 </head>
 <body>
@@ -80,8 +74,8 @@
     <div>
       <a href="https://xnlyn.test-app.link/g6cyOq9vF2">Quick link</a>
     </div>
-    <div>
+    <!-- <div>
       <button onclick="switchBrandName()">Switch brand</button>
-    </div>
+    </div> -->
 </body>
 </html>
