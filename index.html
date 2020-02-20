@@ -46,11 +46,23 @@
     };
 
     function switchBrandName() {
-      branch.setBranchViewData({
-        data: {
-          'brand_name': 'Woolies'
-        }
+      branch.closeJourney(function(err) {
+        console.log(err);
       });
+      branch.track(
+        'pageview',
+        {
+          'brand_name': 'Woolies'
+        },
+        {
+          'disable_entry_animation': true,
+          'disable_exit_animation': true
+        });
+      // branch.setBranchViewData({
+      //   data: {
+      //     'brand_name': 'Woolies'
+      //   }
+      // });
       console.log('fired event');
     };
   </script>
