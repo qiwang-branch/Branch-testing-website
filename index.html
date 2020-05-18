@@ -61,17 +61,45 @@
       );
     };
 
+    function isiOSWebView() {
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      console.log(userAgent);
+      safari = /safari/.test(userAgent),
+      ios = /iphone|ipod|ipad/.test(userAgent);
+      if (ios) {
+        return true;
+      }
+      return false;
+    };
+
+    function fireCustomSchemeEvent(event_name, event_data, meta_data) {
+      var jsonObj = {
+        "name": event_name,
+        "event_data": event_data,
+        "meta_data": {},
+      };
+      var jsonStr = JSON.stringify(jsonObj);
+      var urlSchemeQuery = "branchtestcustomscheme://main?data=" + jsonStr;
+      document.getElementById("branch_custom_scheme_iframe").src = urlSchemeQuery;
+    }
+
     function customEvent() {
       var custom_data = {
         "foo": "bar test",
         "$referrerID": "ced82cd8-3e3e-4ef4-b2d0-2ea661c0d82e"
       };
 
-      branch.logEvent(
-      "APPLICATION_CREATED",
-      custom_data,
-      function(err) { console.log(err); }
-      );
+      if (isiOSWebView()) {
+        alert("This is a webview.");
+        fireCustomSchemeEvent("APPLICATION_CREATED", custom_data, {});
+      } else {
+        alert("This is NOT a webview.");
+        branch.logEvent(
+        "APPLICATION_CREATED",
+        custom_data,
+        function(err) { console.log(err); }
+        );
+      }
     };
   </script>
 </head>
@@ -96,10 +124,10 @@
       <button type="button" class="btn btn-primary" onclick="logIn()">Login</button>
     </div>
     <div>
-      <button onclick="compeleteRegisteration()">Complete registeration</button>
+      <button type="button" class="btn btn-primary" onclick="compeleteRegisteration()">Complete registeration</button>
     </div>
     <div>
-      <button onclick="customEvent()">Trigger custom event</button>
+      <button type="button" class="btn btn-primary" onclick="customEvent()">Trigger custom event</button>
     </div>
     <div>
       <a href="https://xnlyn.app.link/BE1Z7y53h5">Adobe Test A</a>
@@ -117,5 +145,6 @@
         </div>
         <p>Footer</p>
       </div>
+    <iframe id="branch_custom_scheme_iframe" width="1" height="1" style="visibility:hidden"></iframe>
 </body>
 </html>
