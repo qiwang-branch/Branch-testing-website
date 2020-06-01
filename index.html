@@ -103,9 +103,11 @@
     function isiOSWebView() {
       var userAgent = window.navigator.userAgent.toLowerCase();
       console.log(userAgent);
-      safari = /safari/.test(userAgent),
+      safari = /safari/.test(userAgent);
+      console.log(safari)
       ios = /iphone|ipod|ipad/.test(userAgent);
-      if (ios) {
+      console.log(ios)
+      if (ios && !safari) {
         return true;
       }
       return false;
