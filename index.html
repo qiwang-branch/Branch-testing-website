@@ -23,18 +23,13 @@
   <script>
     // load Branch
     (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
-  </script>
-  <script id="branch_sdk_init">
-   // load Branch
-   branch.init('key_live_hbSHp4Ukk6L07eE9sRSTYjdkwAcDbpoG');
+    branch.init('key_live_hbSHp4Ukk6L07eE9sRSTYjdkwAcDbpoG');
       // init Branch
     // if (isiOSWebView()) {
     //   branch.init('key_live_hbSHp4Ukk6L07eE9sRSTYjdkwAcDbpoG', { 'no_journeys': true });
     // } else {    
     //   branch.init('key_live_hbSHp4Ukk6L07eE9sRSTYjdkwAcDbpoG');
     // }
-  </script>
-  <script id="main_script">
     branch.addListener('didShowJourney', decideJourneysAppearence);
     var num = Math.floor((Math.random() * 2) + 1);
     if (num%2 == 0) {
@@ -189,12 +184,10 @@
       <button onclick="switchBrandName()">Switch brand</button>
     </div> -->
       <div class="footer">
-        <div class="branch-banner-iframe"></div>
         <div>
           <button onclick="logIn()">Testing</button>
         </div>
         <p>Footer</p>
       </div>
-    <iframe id="branch_custom_scheme_iframe" width="1" height="1" style="visibility:hidden"></iframe>
 </body>
 </html>
